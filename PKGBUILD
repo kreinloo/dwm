@@ -22,7 +22,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
         dwm-5.9-uselessgap.diff)
 
 md5sums=('8bb00d4142259beb11e13473b81c0857'
-         'ba936dd981dfb743a16f2a2eb4d3f2f4'
+         'a4d7b08a599f3432bab4ac6f52afd73b'
          '939f403a71b6e85261d09fc3412269ee'
          '88d7faa3a0488ee3eb7fe029555181f2'
          'be94530c8592342bd99c7b5eeafdd176'
