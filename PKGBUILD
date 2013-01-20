@@ -18,14 +18,16 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
         dwm.desktop
         dwm-6.0-single_window_no_border.diff
         dwm-6.0-pertag.diff
-        dwm-6.0-systray.diff)
+        dwm-6.0-systray.diff
+        dwm-5.9-uselessgap.diff)
 
 md5sums=('8bb00d4142259beb11e13473b81c0857'
-         '35b98d688d36d5ef8569f8426d3acd76'
+         'ba936dd981dfb743a16f2a2eb4d3f2f4'
          '939f403a71b6e85261d09fc3412269ee'
          '88d7faa3a0488ee3eb7fe029555181f2'
          'be94530c8592342bd99c7b5eeafdd176'
-         '0a527af3bcfbf628ed118bdf86521161')
+         '0a527af3bcfbf628ed118bdf86521161'
+         'bf8bf3ed1edc0a72ab77135b73a0c8cc')
 
 build() {
   cd $srcdir/$pkgname-$pkgver
@@ -33,6 +35,7 @@ build() {
   patch -p1 < ../dwm-6.0-pertag.diff
   patch -p1 < ../dwm-6.0-single_window_no_border.diff
   patch -p1 < ../dwm-6.0-systray.diff
+  patch -p1 < ../dwm-5.9-uselessgap.diff
   sed -i 's/CPPFLAGS =/CPPFLAGS +=/g' config.mk
   sed -i 's/^CFLAGS = -g/#CFLAGS += -g/g' config.mk
   sed -i 's/^#CFLAGS = -std/CFLAGS += -std/g' config.mk
