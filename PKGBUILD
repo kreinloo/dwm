@@ -15,14 +15,24 @@ depends=('libx11' 'libxinerama')
 install=dwm.install
 source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
         config.h
-        dwm.desktop)
+        dwm.desktop
+        dwm-6.0-single_window_no_border.diff
+        dwm-6.0-pertag.diff
+        dwm-6.0-systray.diff)
+
 md5sums=('8bb00d4142259beb11e13473b81c0857'
-         '88e7cc3411e3c5b3786867872b456857'
-         '939f403a71b6e85261d09fc3412269ee')
+         '35b98d688d36d5ef8569f8426d3acd76'
+         '939f403a71b6e85261d09fc3412269ee'
+         '88d7faa3a0488ee3eb7fe029555181f2'
+         'be94530c8592342bd99c7b5eeafdd176'
+         '0a527af3bcfbf628ed118bdf86521161')
 
 build() {
   cd $srcdir/$pkgname-$pkgver
   cp $srcdir/config.h config.h
+  patch -p1 < ../dwm-6.0-pertag.diff
+  patch -p1 < ../dwm-6.0-single_window_no_border.diff
+  patch -p1 < ../dwm-6.0-systray.diff
   sed -i 's/CPPFLAGS =/CPPFLAGS +=/g' config.mk
   sed -i 's/^CFLAGS = -g/#CFLAGS += -g/g' config.mk
   sed -i 's/^#CFLAGS = -std/CFLAGS += -std/g' config.mk
