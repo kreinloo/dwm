@@ -1,0 +1,16 @@
+--- a/dwm.c	2013-02-10 17:33:51.864462363 +0200
++++ b/dwm.c	2013-02-10 17:33:55.744441343 +0200
+@@ -2355,11 +2355,11 @@
+ 		/* init systray */
+ 		if(!(systray = (Systray *)calloc(1, sizeof(Systray))))
+ 			die("fatal: could not malloc() %u bytes\n", sizeof(Systray));
+-		systray->win = XCreateSimpleWindow(dpy, root, x, selmon->by, w, bh, 0, 0, dc.sel[ColBG]);
++		systray->win = XCreateSimpleWindow(dpy, root, x, selmon->by, w, bh, 0, 0, dc.colors[1]);
+ 		wa.event_mask        = ButtonPressMask | ExposureMask;
+ 		wa.override_redirect = True;
+ 		wa.background_pixmap = ParentRelative;
+-		wa.background_pixel  = dc.norm[ColBG];
++		wa.background_pixel  = dc.colors[0];
+ 		XSelectInput(dpy, systray->win, SubstructureNotifyMask);
+ 		XChangeProperty(dpy, systray->win, netatom[NetSystemTrayOrientation], XA_CARDINAL, 32,
+ 				PropModeReplace, (unsigned char *)&systrayorientation, 1);

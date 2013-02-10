@@ -1,17 +1,20 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-termsyn.icons-medium-*-*-*-13-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
+static const char font[]            = "-*-termsyn.icons-medium-*-*-*-14-*-*-*-*-*-*-*" ","
+                                      "-*-termsyn-medium-*-*-*-14-*-*-*-*-*-*-*";
+//static const char font[]            = "-*-termsyn-medium-*-*-*-14-*-*-*-*-*-*-*";
+#define NUMCOLORS 3
+static const char colors[NUMCOLORS][ColLast][8] = {
+/*   border     foreground background    */
+   { "#002b36", "#839496", "#002b36" },  // 0 = normal
+   { "#073642", "#fdf6e3", "#073642" },  // 1 = selected
+   { "#cb4b16", "#eee8d5", "#cb4b16" },  // 2 = urgent/warning
+};
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 4;        /* gap pixel between windows */
+static const unsigned int gappx     = 2;        /* gap pixel between windows */
 static const unsigned int snap      = 8;        /* snap pixel */
-static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const unsigned int systrayspacing = 1;   /* systray spacing */
 static const Bool showsystray       = True;     /* False means no systray */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
@@ -27,7 +30,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster      = 1;    /* number of clients in master area */
-static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
+static const Bool resizehints = False;/* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -49,7 +52,9 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG],
+                                  "-nf", colors[0][ColFG],  "-sb", colors[1][ColBG],
+                                  "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *volume_increase[] = { "amixer", "set", "Master", "3%+", "unmute", NULL };
 static const char *volume_decrease[] = { "amixer", "set", "Master", "3%-", "unmute", NULL };
@@ -111,4 +116,3 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-
