@@ -23,13 +23,13 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
         dwm-6.0-statuscolors-systray-fix.diff)
 
 md5sums=('8bb00d4142259beb11e13473b81c0857'
-         '6f5c46e8039fc26340efffb07f29587f'
+         'cbc960d7fdc86579843b5acb4649fde2'
          '939f403a71b6e85261d09fc3412269ee'
          'be94530c8592342bd99c7b5eeafdd176'
          '0a527af3bcfbf628ed118bdf86521161'
          'bf8bf3ed1edc0a72ab77135b73a0c8cc'
          '76706fdeda50e0a9f8367079efee7149'
-         'f19e11f0ac11a1fbde29234e3b73e18f')
+         'fe6bdc34bdac7ac9101e61a3ddc6c284')
 
 build() {
   cd $srcdir/$pkgname-$pkgver

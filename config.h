@@ -1,15 +1,23 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]            = "-*-termsyn.icons-medium-*-*-*-14-*-*-*-*-*-*-*" ","
+static const char font[]            = "-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*"
+                                      ","
                                       "-*-termsyn-medium-*-*-*-14-*-*-*-*-*-*-*";
-//static const char font[]            = "-*-termsyn-medium-*-*-*-14-*-*-*-*-*-*-*";
-#define NUMCOLORS 3
+#define NUMCOLORS 11
 static const char colors[NUMCOLORS][ColLast][8] = {
 /*   border     foreground background    */
    { "#002b36", "#839496", "#002b36" },  // 0 = normal
-   { "#073642", "#fdf6e3", "#073642" },  // 1 = selected
+   { "#073642", "#fdf6e3", "#002b36" },  // 1 = selected
    { "#cb4b16", "#eee8d5", "#cb4b16" },  // 2 = urgent/warning
+   { "#002b36", "#0087ff", "#002b36" },  // 3 = blue
+   { "#002b36", "#d75f00", "#002b36" },  // 4 = orange
+   { "#002b36", "#d33682", "#002b36" },  // 5 = magneta
+   { "#002b36", "#5f8700", "#002b36" },  // 6 = green
+   { "#002b36", "#dc322f", "#002b36" },  // 7 = red
+   { "#002b36", "#5f5faf", "#002b36" },  // 8 = purple
+   { "#000000", "#000000", "#000000" },  // unusable
+   { "#002b36", "#00afaf", "#002b36" },  // 9 = cyan
 };
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 2;        /* gap pixel between windows */
@@ -52,9 +60,9 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", colors[0][ColBG],
-                                  "-nf", colors[0][ColFG],  "-sb", colors[1][ColBG],
-                                  "-sf", colors[1][ColFG], NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-fn", font,
+                                  "-nb", colors[0][ColBG], "-nf", colors[0][ColFG],
+                                  "-sb", colors[1][ColBG], "-sf", colors[1][ColFG], NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
 static const char *volume_increase[] = { "amixer", "set", "Master", "3%+", "unmute", NULL };
 static const char *volume_decrease[] = { "amixer", "set", "Master", "3%-", "unmute", NULL };
