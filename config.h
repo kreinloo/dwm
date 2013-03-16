@@ -27,12 +27,12 @@ static const Bool showsystray       = True;     /* False means no systray */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 /* tagging */
-static const char *tags[] = { "web", "dev", "misc" };
+static const char *tags[] = { "web", "dev", "misc", "chat" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Chromium", NULL,       NULL,       1 << 0,       False,       -1 },
-	{ "Skype",    NULL,       NULL,       1 << 2,       True,        -1 },
+	{ "Skype",    NULL,       NULL,       1 << 3,       True,        -1 },
 };
 
 /* layout(s) */
@@ -95,8 +95,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_F1,                     0)
 	TAGKEYS(                        XK_F2,                     1)
 	TAGKEYS(                        XK_F3,                     2)
+	TAGKEYS(                        XK_F4,                     3)
 /*
-	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
 	TAGKEYS(                        XK_7,                      6)
