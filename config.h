@@ -7,8 +7,8 @@ static const char font[]            = "-*-stlarch-medium-r-*-*-10-*-*-*-*-*-*-*"
 #define NUMCOLORS 11
 static const char colors[NUMCOLORS][ColLast][8] = {
 /*   border     foreground background    */
-   { "#002b36", "#839496", "#002b36" },  // 0 = normal
-   { "#073642", "#fdf6e3", "#002b36" },  // 1 = selected
+   { "#073642", "#839496", "#002b36" },  // 0 = normal
+   { "#586E75", "#fdf6e3", "#002b36" },  // 1 = selected
    { "#cb4b16", "#eee8d5", "#cb4b16" },  // 2 = urgent/warning
    { "#002b36", "#0087ff", "#002b36" },  // 3 = blue
    { "#002b36", "#d75f00", "#002b36" },  // 4 = orange
@@ -27,12 +27,12 @@ static const Bool showsystray       = True;     /* False means no systray */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 /* tagging */
-static const char *tags[] = { "web", "dev", "misc", "chat" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Chromium", NULL,       NULL,       1 << 0,       False,       -1 },
-	{ "Skype",    NULL,       NULL,       1 << 3,       True,        -1 },
+	{ "Skype",    NULL,       NULL,       1 << 5,       True,        -1 },
 };
 
 /* layout(s) */
@@ -96,9 +96,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_F2,                     1)
 	TAGKEYS(                        XK_F3,                     2)
 	TAGKEYS(                        XK_F4,                     3)
+	TAGKEYS(                        XK_F5,                     4)
+	TAGKEYS(                        XK_F6,                     5)
 /*
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)

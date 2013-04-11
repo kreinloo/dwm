@@ -23,7 +23,7 @@ source=(http://dl.suckless.org/dwm/dwm-$pkgver.tar.gz
         dwm-6.0-statuscolors-systray-fix.diff)
 
 md5sums=('8bb00d4142259beb11e13473b81c0857'
-         '5f582fd23ebeaf69280c3bd0fc543629'
+         'b034b62cc44532756ed17a0bac05e102'
          '939f403a71b6e85261d09fc3412269ee'
          'be94530c8592342bd99c7b5eeafdd176'
          '0a527af3bcfbf628ed118bdf86521161'
@@ -36,7 +36,7 @@ build() {
   cp $srcdir/config.h config.h
   patch -p1 < ../dwm-6.0-pertag.diff
   patch -p1 < ../dwm-6.0-systray.diff
-  patch -p1 < ../dwm-5.9-uselessgap.diff
+ #patch -p1 < ../dwm-5.9-uselessgap.diff
   patch -p1 < ../dwm-5.9-statuscolors.diff
   patch -p1 < ../dwm-6.0-statuscolors-systray-fix.diff
   sed -i 's/CPPFLAGS =/CPPFLAGS +=/g' config.mk
